@@ -7,13 +7,14 @@ cask "lastout" do
   desc "Copy terminal command output for LLMs"
   homepage "https://github.com/Xiang-Suc/lastout-releases"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Lastout.app"
   binary "#{appdir}/Lastout.app/Contents/Helpers/lo"
   binary "#{appdir}/Lastout.app/Contents/Helpers/lastout-shell"
 
   uninstall quit: "dev.lastout.app"
+
   zap trash: [
     "~/Library/Application Support/lastout",
     "~/Library/Preferences/dev.lastout.app.plist",
