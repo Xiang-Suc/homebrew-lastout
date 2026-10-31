@@ -1,6 +1,6 @@
 cask "lastout" do
-  version "0.3.0"
-  sha256 "df9c7b50ec9667aeae901c951dccf4a84d525f7fef5b3e653a67bf526a8d9e4c"
+  version "0.4.1"
+  sha256 "bb780aa219e1b224bf86d8b715e2e37e7ad0f5ecc891e5d027f24eea21d3e67e"
 
   url "https://github.com/Xiang-Suc/lastout-releases/releases/download/v#{version}/Lastout-#{version}.zip"
   name "Lastout"
