@@ -1,12 +1,18 @@
 cask "lastout" do
-  version "0.4.1"
-  sha256 "bb780aa219e1b224bf86d8b715e2e37e7ad0f5ecc891e5d027f24eea21d3e67e"
+  version "0.4.2"
+  sha256 "44df49c282ff924891a8faadae82ee244bc15cffad68daa6ac9d1a0af08cbf7f"
 
   url "https://github.com/Xiang-Suc/lastout-releases/releases/download/v#{version}/Lastout-#{version}.zip"
   name "Lastout"
   desc "Copy terminal command output for LLMs"
-  homepage "https://github.com/Xiang-Suc/lastout-releases"
+  homepage "https://lastout.dev/"
 
+  livecheck do
+    url "https://github.com/Xiang-Suc/lastout-releases/releases/latest/download/appcast.xml"
+    strategy :sparkle, &:short_version
+  end
+
+  auto_updates true
   depends_on macos: :sonoma
 
   app "Lastout.app"
@@ -20,5 +26,9 @@ cask "lastout" do
     "~/Library/Preferences/dev.lastout.app.plist",
   ]
 
-  caveats "Run `lo setup` (or open Lastout) to record your terminals; `lo setup --uninstall` removes it."
+  caveats <<~EOS
+    Open Lastout once: it starts the trial and offers Set Up, which records your terminals.
+    The shortcuts, `lo search`, `lo save` and `lo mcp` need the app running.
+    `lo setup --uninstall` removes the shell setup.
+  EOS
 end
